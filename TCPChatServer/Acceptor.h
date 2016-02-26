@@ -10,10 +10,10 @@ namespace ChatServer
 	class Acceptor
 	{
 	public:
-		Acceptor(IAcceptor &_rServer, uint16_t _tcpPort) :
-			rServer(_rServer),
-			rService(_rServer.GetIOService()),
-			tcpPort(_tcpPort),
+		Acceptor(IAcceptor &_server, uint16_t _port) :
+			rServer(_server),
+			rService(_server.GetIOService()),
+			tcpPort(_port),
 			endPoint(asio::ip::tcp::v4(), tcpPort),
 			asioAcceptor(rService, asio::ip::tcp::v4())
 		{}
@@ -23,7 +23,7 @@ namespace ChatServer
 	
 	private:
 		//обработчик подключения
-		void OnAccept(const system::error_code &_errorCode, SocketPtr _pSocket);
+		void OnAccept(const system::error_code &_error_code, SocketPtr _socket);
 
 		IAcceptor &rServer;//ссылка на сервер
 		asio::io_service &rService;//ссылка на io_service
