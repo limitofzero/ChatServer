@@ -150,6 +150,9 @@
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="ServerInterface.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Acceptor.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

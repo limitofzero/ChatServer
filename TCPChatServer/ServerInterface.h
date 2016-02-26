@@ -6,6 +6,7 @@
 namespace ChatServer
 {
 	using Socket = boost::asio::ip::tcp::socket;
+	using SocketPtr = std::shared_ptr<Socket>;
 
 	class IConnection
 	{
@@ -29,7 +30,7 @@ namespace ChatServer
 		virtual boost::asio::io_service &GetIOService() = 0;
 
 		//передает серверу смарт-поинтер на сокет для создания подключения
-		virtual void CreateConnection(std::shared_ptr<Socket> &_pSocket) = 0;
+		virtual void CreateConnection(SocketPtr &_pSocket) = 0;
 
 		virtual ~IAcceptor() = default;
 	};

@@ -15,12 +15,16 @@ namespace ChatServer
 			rService(_rServer.GetIOService()),
 			tcpPort(_tcpPort),
 			endPoint(asio::ip::tcp::v4(), tcpPort),
-			asioAcceptor(_rServer.GetIOService(), asio::ip::tcp::v4())
+			asioAcceptor(rService, asio::ip::tcp::v4())
 		{}
 
-	
+		//начать ожидание подключения
+		void Start();
 	
 	private:
+		//обработчик подключения
+		void OnAccept(const system::error_code &_errorCode, SocketPtr _pSocket);
+
 		IAcceptor &rServer;//ссылка на сервер
 		asio::io_service &rService;//ссылка на io_service
 		asio::ip::tcp::acceptor asioAcceptor;
