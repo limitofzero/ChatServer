@@ -14,7 +14,7 @@ namespace ChatServer
 		//отключить клиента
 		virtual void DeleteConnection(const std::string &_clientGuid) = 0;
 		
-		//возвращает ссылку на io_service
+		//возвращает ссылку на io_service --------- возможно убрать!!!!!!!!!!!!!!!!
 		virtual boost::asio::io_service &GetIOService() = 0;
 
 		//обработка сообщения
@@ -33,5 +33,15 @@ namespace ChatServer
 		virtual void CreateConnection(SocketPtr &_pSocket) = 0;
 
 		virtual ~IAcceptor() = default;
+	};
+
+
+	class IAuthorizator
+	{
+	public:
+		//добавляет прошедшего авторизацию пользователя на сервер
+		virtual void AddConnection(const std::string &newGuid) = 0ж
+
+		virtual ~IAuthorizator() = default;
 	};
 }
