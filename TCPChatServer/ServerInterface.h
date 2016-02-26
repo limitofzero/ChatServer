@@ -3,12 +3,13 @@
 #include <boost/asio.hpp>
 #include <memory>
 
-namespace Network
+namespace ChatServer
 {
 	using Socket = boost::asio::ip::tcp::socket;
 
 	class IConnection
 	{
+	public:
 		//отключить клиента
 		virtual void DeleteConnection(const std::string &_clientGuid) = 0;
 		
@@ -23,11 +24,12 @@ namespace Network
 
 	class IAcceptor
 	{
+	public:
 		//возвращает ссылку на io_service
 		virtual boost::asio::io_service &GetIOService() = 0;
 
 		//передает серверу смарт-поинтер на сокет для создания подключения
-		virtual void CreateConnection(std::shared_ptr<Socket> &pSocket) = 0;
+		virtual void CreateConnection(std::shared_ptr<Socket> &_pSocket) = 0;
 
 		virtual ~IAcceptor() = default;
 	};
