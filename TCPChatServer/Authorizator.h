@@ -8,19 +8,34 @@
 namespace ChatServer
 {
 	using namespace boost;
+
 	class BaseParser;
 	//класс, авторизирующий подключения
 	class Authorizator
 	{
-	public:
+		using BufferPtr = std::shared_ptr<asio::streambuf>;
 
+	public:
+		Authorizator(IAuthorizator &_server, const uint16_t _disconnect_seconds) :
+			rServer(_server),
+			rService(_server.GetIOService()),
+			disconnectSeconds(_disconnect_seconds)
+			//код инициализации парсера
+		{}
+
+		//добавить подключение
+		void WaitAuthorizedMessage(SocketPtr &_socket);
 
 	private:
-		std::unique_ptr<BaseParser> pParser;
-		std::unordered_map<uint16_t, SocketPtr> socketsList;//список сокетов ожидающих подключение
-		std::unordered_map<uint16_t, asio::deadline_timer> timersList;//список таймеров отключения
+		//обработчик чтения
+		void OnRead(const system::error_code &_error ,SocketPtr _socket, BufferPtr _buffer);
 
-		const std::chrono::seconds disconnectSeconds;
-		uint16_t socketCounter{ 0 };//счетчик сокетов, инкрементируется при добавлении нового сокета в список
+		//обработчик отключения
+		void TimeOut(SocketPtr _socket);
+
+		IAuthorizator &rServer;//ссылка на сервер
+		asio::io_service &rService;//ссылка на io_services
+		std::unique_ptr<BaseParser> pParser;//парсер
+		const std::chrono::seconds disconnectSeconds;//время отключения(для таймера)
 	};
 }

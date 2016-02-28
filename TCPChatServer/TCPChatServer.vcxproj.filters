@@ -13,27 +13,33 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Заголовочные файлы\TCPServer">
+      <UniqueIdentifier>{f14275c9-730e-4d76-8a64-62c292c156b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\TCPServer">
+      <UniqueIdentifier>{43529cb9-b774-46cb-83d3-810987dd1f48}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ServerInterface.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
     <ClInclude Include="Acceptor.h">
-      <Filter>Заголовочные файлы</Filter>
-    </ClInclude>
-    <ClInclude Include="Connection.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\TCPServer</Filter>
     </ClInclude>
     <ClInclude Include="Authorizator.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\TCPServer</Filter>
+    </ClInclude>
+    <ClInclude Include="Connection.h">
+      <Filter>Заголовочные файлы\TCPServer</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerInterface.h">
+      <Filter>Заголовочные файлы\TCPServer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\TCPServer</Filter>
     </ClCompile>
     <ClCompile Include="Connection.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\TCPServer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

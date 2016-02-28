@@ -40,7 +40,10 @@ namespace ChatServer
 	{
 	public:
 		//добавляет прошедшего авторизацию пользователя на сервер
-		virtual void AddConnection(const std::string &newGuid) = 0ж
+		virtual void AddConnection(const std::string &_guid, SocketPtr &_socket) = 0;
+
+		//возвращает ссылку на io_service
+		virtual boost::asio::io_service &GetIOService() = 0;
 
 		virtual ~IAuthorizator() = default;
 	};
