@@ -2,6 +2,7 @@
 
 
 #include "ShortEnums.h"
+#include <chrono>
 
 namespace ChatServer
 {
@@ -19,6 +20,9 @@ namespace ChatServer
 
 		//авторизация
 		virtual void AuthorizeConnection(const std::string &_temp_guid, const std::string &_message) = 0;
+
+		//возвращаем время отключения
+		virtual std::chrono::seconds GetDisconnectTime() = 0;
 
 		virtual ~IConnection() = default;
 	};
