@@ -17,6 +17,9 @@ namespace ChatServer
 		//обработка сообщения
 		virtual void HandleMessage(const std::string &_guid, const std::string &_message) = 0;
 
+		//авторизация
+		virtual void AuthorizeConnection(const std::string &_temp_guid, const std::string &_message) = 0;
+
 		virtual ~IConnection() = default;
 	};
 
