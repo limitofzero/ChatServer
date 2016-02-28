@@ -148,13 +148,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h" />
-    <ClInclude Include="Authorizator.h" />
+    <ClInclude Include="BaseCommand.h" />
     <ClInclude Include="Connection.h" />
+    <ClInclude Include="CreateConnection.h" />
     <ClInclude Include="ServerInterface.h" />
+    <ClInclude Include="ShortEnums.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp" />
     <ClCompile Include="Connection.cpp" />
+    <ClCompile Include="CreateConnection.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

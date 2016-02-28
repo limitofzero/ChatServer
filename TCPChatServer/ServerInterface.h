@@ -31,14 +31,4 @@ namespace ChatServer
 
 		virtual ~IAcceptor() = default;
 	};
-
-
-	class IAuthorizator//в будущем - удалить
-	{
-	public:
-		//возвращает ссылку на io_service
-		virtual boost::asio::io_service &GetIOService() = 0;
-
-		virtual ~IAuthorizator() = default;
-	};
 }
