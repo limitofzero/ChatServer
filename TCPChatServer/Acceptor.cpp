@@ -12,8 +12,6 @@ void ChatServer::Acceptor::Start()
 	{
 		OnAccept(_errorCode, pSocket);
 	});
-
-
 }
 
 void ChatServer::Acceptor::OnAccept(const system::error_code & _errorCode, SocketPtr _pSocket)
