@@ -19,6 +19,19 @@ namespace ChatServer
 			clientGuid(_guid)
 		{}
 
+		Connection(Connection &&_connection) :
+			rServer(_connection.rServer),
+			pSocket(std::move(_connection.pSocket)),
+			disconnectTime(_connection.disconnectTime),
+			disconnectTimer(rServer.GetIOService()),
+			clientGuid(std::move(_connection.clientGuid))
+		{}
+		
+		Connection(const IConnection &_connection) = delete;
+		Connection &operator=(const IConnection &_connection) = delete;
+		Connection &operator=(IConnection &&_connection) = delete;
+
+
 		//начать прослушивание сокета
 		void ReadMessage(const bool _first = false);
 
