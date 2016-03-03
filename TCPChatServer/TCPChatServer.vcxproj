@@ -150,12 +150,13 @@
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="Connection.h" />
-    <ClInclude Include="CreateConnection.h" />
+    <ClInclude Include="AuthorizeConnection.h" />
     <ClInclude Include="ServerInterface.h" />
     <ClInclude Include="ShortEnums.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp" />
+    <ClCompile Include="AuthorizeConnection.cpp" />
     <ClCompile Include="Connection.cpp" />
     <ClCompile Include="CreateConnection.cpp" />
   </ItemGroup>

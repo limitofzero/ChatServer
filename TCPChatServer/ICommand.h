@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ServerInterface.h"
 #include "ShortEnums.h"
 
 namespace Command
@@ -11,6 +12,6 @@ namespace Command
 	class ICommand
 	{
 		//выполнить комманду
-		virtual void Execute(Server &_server) = 0;
+		virtual void Execute(ChatServer::ICommand &_server) = 0;
 	};
 }

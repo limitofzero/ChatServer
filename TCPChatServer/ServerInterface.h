@@ -44,8 +44,9 @@ namespace ChatServer
 	//интерфейс для выполнения команд сервера
 	class ICommand
 	{
-		//отправить сообщение пользователю/пользователям(в зависимости от _message)
-		virtual void WriteMessage(const ParametrizedMessage _message) = 0;
+	public:
+		//отправить сообщение пользователям
+		virtual void WriteMessage(const std::string &_guid, const std::string &_message) = 0;
 
 		//добавить соединение в список проверенных
 		virtual void AddAuthorizedConnection(const std::string &_temp_guid, const std::string &_new_guid) = 0;
