@@ -6,6 +6,8 @@
 
 namespace ChatServer
 {
+	class ParametrizedMessage;
+
 	class IConnection
 	{
 	public:
@@ -37,5 +39,17 @@ namespace ChatServer
 		virtual void CreateConnection(SocketPtr &_socket) = 0;
 
 		virtual ~IAcceptor() = default;
+	};
+
+	//интерфейс для выполнения команд сервера
+	class ICommand
+	{
+		//отправить сообщение пользователю/пользователям(в зависимости от _message)
+		virtual void WriteMessage(const ParametrizedMessage _message) = 0;
+
+		//добавить соединение в список проверенных
+		virtual void AddAuthorizedConnection(const std::string &_temp_guid, const std::string &_new_guid) = 0;
+
+		virtual ~ICommand() = default;
 	};
 }

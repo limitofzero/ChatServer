@@ -8,7 +8,7 @@ namespace Command
 	class CreateConnection : ICommand
 	{
 	public:
-		CreateConnection(const std::string _guid, SocketPtr &_socket) :
+		
 
 
 		//выполнить комманду
