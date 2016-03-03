@@ -8,7 +8,7 @@ namespace Command
 
 	class Server;
 	//интерфейс для класса - комманда
-	class BaseCommand
+	class ICommand
 	{
 		//выполнить комманду
 		virtual void Execute(Server &_server) = 0;

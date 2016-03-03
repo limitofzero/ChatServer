@@ -148,7 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h" />
-    <ClInclude Include="BaseCommand.h" />
+    <ClInclude Include="ICommand.h" />
     <ClInclude Include="Connection.h" />
     <ClInclude Include="CreateConnection.h" />
     <ClInclude Include="ServerInterface.h" />

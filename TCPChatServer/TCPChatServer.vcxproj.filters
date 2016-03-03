@@ -42,13 +42,13 @@
     <ClInclude Include="ServerInterface.h">
       <Filter>Заголовочные файлы\TCPServer</Filter>
     </ClInclude>
-    <ClInclude Include="BaseCommand.h">
-      <Filter>Заголовочные файлы\Command</Filter>
-    </ClInclude>
     <ClInclude Include="ShortEnums.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="CreateConnection.h">
+      <Filter>Заголовочные файлы\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommand.h">
       <Filter>Заголовочные файлы\Command</Filter>
     </ClInclude>
   </ItemGroup>

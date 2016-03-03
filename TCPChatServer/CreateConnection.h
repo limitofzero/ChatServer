@@ -1,11 +1,11 @@
 #pragma once
-#include "BaseCommand.h"
+#include "ICommand.h"
 #include <boost/asio.hpp>
 
 namespace Command
 {
 	//комманда создания нового соединения
-	class CreateConnection : BaseCommand
+	class CreateConnection : ICommand
 	{
 	public:
 		CreateConnection(const std::string _guid, SocketPtr &_socket) :
