@@ -147,20 +147,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AcceptMsgFabric.h" />
     <ClInclude Include="Acceptor.h" />
+    <ClInclude Include="AuthorizeMsgFabric.h" />
+    <ClInclude Include="GuidMsgFabric.h" />
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="Connection.h" />
     <ClInclude Include="AuthorizeConnection.h" />
     <ClInclude Include="Enums.h" />
-    <ClInclude Include="MsgFabric.h" />
+    <ClInclude Include="IMsgFabric.h" />
     <ClInclude Include="ServerInterface.h" />
     <ClInclude Include="ShortEnums.h" />
     <ClInclude Include="WriteMessage.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\libs\jsoncpp.cpp" />
+    <ClCompile Include="AcceptMsgFabric.cpp" />
     <ClCompile Include="Acceptor.cpp" />
+    <ClCompile Include="AuthorizeMsgFabric.cpp" />
     <ClCompile Include="Connection.cpp" />
+    <ClCompile Include="GuidMsgFabric.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

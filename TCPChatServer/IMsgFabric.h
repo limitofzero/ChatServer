@@ -5,7 +5,8 @@
 
 namespace JsonParser
 {
-	class JValueFabric
+	//базовый Интерфейсный класс для создания Json объекта
+	class IMsgFabric 
 	{
 	public:
 		//создать Json::Value объект
