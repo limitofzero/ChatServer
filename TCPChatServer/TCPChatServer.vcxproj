@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>Z:\Downloads\boost_1_60_0\boost_1_60_0;$(IncludePath)</IncludePath>
+    <IncludePath>..\libs;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -151,12 +151,14 @@
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="Connection.h" />
     <ClInclude Include="AuthorizeConnection.h" />
-    <ClInclude Include="MsgParams.h" />
+    <ClInclude Include="Enums.h" />
+    <ClInclude Include="MsgFabric.h" />
     <ClInclude Include="ServerInterface.h" />
     <ClInclude Include="ShortEnums.h" />
     <ClInclude Include="WriteMessage.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\libs\jsoncpp.cpp" />
     <ClCompile Include="Acceptor.cpp" />
     <ClCompile Include="Connection.cpp" />
   </ItemGroup>

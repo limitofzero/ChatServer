@@ -34,6 +34,9 @@
     <Filter Include="Заголовочные файлы\Enums">
       <UniqueIdentifier>{6725893b-ea8e-4283-9f45-8e923b6cc758}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\JsonParser\MsgFabric">
+      <UniqueIdentifier>{e430bbee-5c17-494a-88e0-8b6d9cd4ce4f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h">
@@ -57,8 +60,11 @@
     <ClInclude Include="WriteMessage.h">
       <Filter>Заголовочные файлы\Command</Filter>
     </ClInclude>
-    <ClInclude Include="MsgParams.h">
+    <ClInclude Include="Enums.h">
       <Filter>Заголовочные файлы\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgFabric.h">
+      <Filter>Заголовочные файлы\JsonParser\MsgFabric</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +73,9 @@
     </ClCompile>
     <ClCompile Include="Connection.cpp">
       <Filter>Файлы исходного кода\TCPServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\libs\jsoncpp.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
