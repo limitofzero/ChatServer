@@ -51,6 +51,9 @@
     <ClInclude Include="AuthorizeConnection.h">
       <Filter>Заголовочные файлы\Command</Filter>
     </ClInclude>
+    <ClInclude Include="WriteMessage.h">
+      <Filter>Заголовочные файлы\Command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp">
@@ -58,12 +61,6 @@
     </ClCompile>
     <ClCompile Include="Connection.cpp">
       <Filter>Файлы исходного кода\TCPServer</Filter>
-    </ClCompile>
-    <ClCompile Include="CreateConnection.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="AuthorizeConnection.cpp">
-      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

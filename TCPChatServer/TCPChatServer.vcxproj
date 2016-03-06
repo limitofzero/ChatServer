@@ -153,12 +153,11 @@
     <ClInclude Include="AuthorizeConnection.h" />
     <ClInclude Include="ServerInterface.h" />
     <ClInclude Include="ShortEnums.h" />
+    <ClInclude Include="WriteMessage.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp" />
-    <ClCompile Include="AuthorizeConnection.cpp" />
     <ClCompile Include="Connection.cpp" />
-    <ClCompile Include="CreateConnection.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
