@@ -31,6 +31,9 @@
     <Filter Include="Файлы исходного кода\Command">
       <UniqueIdentifier>{d04cdc17-1723-4d4c-b409-af831bad1abd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\Enums">
+      <UniqueIdentifier>{6725893b-ea8e-4283-9f45-8e923b6cc758}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h">
@@ -53,6 +56,9 @@
     </ClInclude>
     <ClInclude Include="WriteMessage.h">
       <Filter>Заголовочные файлы\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgParams.h">
+      <Filter>Заголовочные файлы\Enums</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
