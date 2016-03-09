@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>..\libs;$(IncludePath)</IncludePath>
+    <IncludePath>..\libs;Z:\Downloads\boost_1_60_0\boost_1_60_0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -150,6 +150,7 @@
     <ClInclude Include="AcceptMsgFabric.h" />
     <ClInclude Include="Acceptor.h" />
     <ClInclude Include="AuthorizeMsgFabric.h" />
+    <ClInclude Include="ErrorMsgFabric.h" />
     <ClInclude Include="GuidMsgFabric.h" />
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="Connection.h" />
@@ -166,6 +167,7 @@
     <ClCompile Include="Acceptor.cpp" />
     <ClCompile Include="AuthorizeMsgFabric.cpp" />
     <ClCompile Include="Connection.cpp" />
+    <ClCompile Include="ErrorMsgFabric.cpp" />
     <ClCompile Include="GuidMsgFabric.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

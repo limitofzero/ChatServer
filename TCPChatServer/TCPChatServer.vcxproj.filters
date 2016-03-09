@@ -75,6 +75,9 @@
     <ClInclude Include="GuidMsgFabric.h">
       <Filter>Заголовочные файлы\JsonParser\MsgFabric</Filter>
     </ClInclude>
+    <ClInclude Include="ErrorMsgFabric.h">
+      <Filter>Заголовочные файлы\JsonParser\MsgFabric</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp">
@@ -93,6 +96,9 @@
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="GuidMsgFabric.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorMsgFabric.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
