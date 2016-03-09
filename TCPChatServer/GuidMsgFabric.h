@@ -19,6 +19,6 @@ namespace JsonParser
 	private:
 		const std::string guidClient;
 		const std::string msgClient;
-		//добавить переменную времени
+		const std::string timeReceive;
 	};
 }

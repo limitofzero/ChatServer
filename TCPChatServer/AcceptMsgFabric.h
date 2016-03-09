@@ -17,7 +17,5 @@ namespace JsonParser
 
 	private:
 		const std::string serverVersion;
-
-		
 	};
 }
