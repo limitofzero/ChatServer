@@ -37,6 +37,9 @@
     <Filter Include="Заголовочные файлы\JsonParser\MsgFabric">
       <UniqueIdentifier>{e430bbee-5c17-494a-88e0-8b6d9cd4ce4f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы исходного кода\JsonParser\MsgFabric">
+      <UniqueIdentifier>{0e605465-4c24-4868-a6f1-0295df83dd96}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h">
@@ -78,6 +81,9 @@
     <ClInclude Include="ErrorMsgFabric.h">
       <Filter>Заголовочные файлы\JsonParser\MsgFabric</Filter>
     </ClInclude>
+    <ClInclude Include="Parser.h">
+      <Filter>Заголовочные файлы\JsonParser</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp">
@@ -90,15 +96,18 @@
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="AcceptMsgFabric.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\JsonParser\MsgFabric</Filter>
     </ClCompile>
     <ClCompile Include="AuthorizeMsgFabric.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
-    <ClCompile Include="GuidMsgFabric.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\JsonParser\MsgFabric</Filter>
     </ClCompile>
     <ClCompile Include="ErrorMsgFabric.cpp">
+      <Filter>Файлы исходного кода\JsonParser\MsgFabric</Filter>
+    </ClCompile>
+    <ClCompile Include="GuidMsgFabric.cpp">
+      <Filter>Файлы исходного кода\JsonParser\MsgFabric</Filter>
+    </ClCompile>
+    <ClCompile Include="Parser.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>

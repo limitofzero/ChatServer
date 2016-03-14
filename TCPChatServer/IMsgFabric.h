@@ -10,6 +10,6 @@ namespace JsonParser
 	{
 	public:
 		//создать Json::Value объект
-		virtual Json::Value CreateJsValue() = 0;
+		virtual Json::Value CreateJsValue() const = 0;
 	};
 }

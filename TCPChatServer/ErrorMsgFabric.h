@@ -13,7 +13,7 @@ namespace JsonParser
 		{}
 
 		// Унаследовано через IMsgFabric
-		virtual Json::Value CreateJsValue() override;
+		virtual Json::Value CreateJsValue() const override;
 
 
 	private:

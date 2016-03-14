@@ -1,6 +1,6 @@
 #include "AcceptMsgFabric.h"
 
-Json::Value JsonParser::AcceptMsgFabric::CreateJsValue()
+Json::Value JsonParser::AcceptMsgFabric::CreateJsValue() const
 {
 	Json::Value jsValue;
 

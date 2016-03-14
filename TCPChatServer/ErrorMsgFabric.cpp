@@ -1,6 +1,6 @@
 #include "ErrorMsgFabric.h"
 
-Json::Value JsonParser::ErrorMsgFabric::CreateJsValue()
+Json::Value JsonParser::ErrorMsgFabric::CreateJsValue() const
 {
 	Json::Value jsValue;
 	jsValue["Error"]["Code"] = static_cast<uint8_t>(errorCode);

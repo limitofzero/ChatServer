@@ -157,6 +157,7 @@
     <ClInclude Include="AuthorizeConnection.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="IMsgFabric.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="ServerInterface.h" />
     <ClInclude Include="ShortEnums.h" />
     <ClInclude Include="WriteMessage.h" />
@@ -169,6 +170,7 @@
     <ClCompile Include="Connection.cpp" />
     <ClCompile Include="ErrorMsgFabric.cpp" />
     <ClCompile Include="GuidMsgFabric.cpp" />
+    <ClCompile Include="Parser.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

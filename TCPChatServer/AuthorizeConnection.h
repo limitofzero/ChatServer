@@ -9,10 +9,10 @@ namespace Command
 	{
 	public:
 		AuthorizeConnection(const std::string &_temp_guid, const std::string &_new_guid,
-			const std::string &_client_version) :
+			const std::string &_client_password) :
 			tempGuid(_temp_guid),
 			clientGuid(_new_guid),
-			clientVersion(_client_version)
+			clientPassword(_client_password)
 		{};
 
 
@@ -25,6 +25,6 @@ namespace Command
 	private:
 		const std::string clientGuid;
 		const std::string tempGuid;
-		const std::string clientVersion;
+		const std::string clientPassword;
 	};
 }
