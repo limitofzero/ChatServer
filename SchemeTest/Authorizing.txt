@@ -1,0 +1,7 @@
+{
+	"Authorizing":
+	{
+		"guid" : "GUID1",
+		"password" : "sdkfjaSDIF"
+	}
+}

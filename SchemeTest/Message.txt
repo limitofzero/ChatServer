@@ -1,0 +1,7 @@
+{
+	"Message":
+	{
+		"guid" : "Guid1",
+		"message" : "content"
+	}
+}
