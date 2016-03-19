@@ -17,11 +17,14 @@ Json::Value loadDocument(const std::string &fileName)
 
 	if (!ifStream.is_open())
 	{
-		std::cout << "Errror\n";
+		std::cout << "File didn't read!\n";
 	}
 
 	if (!reader.parse(ifStream, jsValue, true))
+	{
 		throw std::runtime_error("Unable to parse " + fileName);
+	}
+
 	return jsValue;
 }
 
@@ -33,26 +36,61 @@ void ReadAndValidateNode(const std::string &fileName, const std::string &schemeF
 	using valijson::ValidationResults;
 	using valijson::adapters::JsonCppAdapter;
 
-	auto root = loadDocument(fileName);
-	auto scheme = loadDocument(schemeFileName);
+
+	Json::Value root, scheme;
+	try
+	{
+		root = loadDocument(fileName);
+		scheme = loadDocument(schemeFileName);
+	}
+	catch (std::exception e)
+	{
+		std::cout << e.what() << "\n";
+		return;
+	}
 	
-	JsonCppAdapter doc(root);
-	JsonCppAdapter schemaDoc(scheme);
+	JsonCppAdapter docAdapter(root);
+	JsonCppAdapter schemaDocAdapter(scheme);
+	
 	
 	SchemaParser parser(valijson::SchemaParser::kDraft4);
 	Schema schema;
-	parser.populateSchema(schemaDoc, schema);
+	try
+	{
+		parser.populateSchema(schemaDocAdapter, schema);
+	}
+	catch (std::exception e)
+	{
+		std::cout << e.what() << "\n";
+		return;
+	}
 
 	Validator validator;
 	ValidationResults results;
 	
-	if (validator.validate(schema, doc, &results))
+	if (validator.validate(schema, docAdapter, &results))
 	{
 		std::cout << fileName + " is valid(" << schemeFileName << ")\n";
 	}
 	else
 	{
 		std::cout << fileName + " isn't valid(" << schemeFileName << ")\n";
+		ValidationResults::Error error;
+		uint8_t errorNum = 1;
+		while (results.popError(error)) 
+		{
+
+			std::string context;
+			auto itr = error.context.begin();
+			for (; itr != error.context.end(); itr++) {
+				context += *itr;
+			}
+
+			std::cout << "Error #" << errorNum << std::endl
+				<< "  context: " << context << "\n"
+				<< "  desc:    " << error.description << "\n";
+			++errorNum;
+		}
 	}
 }
 
@@ -62,6 +100,7 @@ int main()
 {
 
 	ReadAndValidateNode("Authorizing.txt", "../schema/authorizing.json");
+	ReadAndValidateNode("Message.txt", "../schema/message.json");
 	
 	system("pause");
 	return 0;

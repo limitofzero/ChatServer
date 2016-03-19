@@ -1,21 +1,26 @@
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
-	"title" : "Authorizing schem",
+	"title" : "Authorized schem",
 	"type" : "object",
 	"properties" :
 	{
-		"Authorizing" :
+		"Message" :
 		{
 			"type" : "object",
 			"properties" :
 			{
 				"guid": { "$ref" : "#/definitions/guid_info" },
-				"password" : { "$ref" : "#/definitions/guid_info" }
+				"content" : 
+				{
+					"type" : "string",
+					"maxLength" : 256,
+					"minLength" : 1
+				}
 			},
-			"required" : [ "guid", "password" ]
+			"required" : [ "guid", "content" ]
 		}
 	},
-	"required" : [ "Authorizing" ],
+	"required" : [ "Message" ],
 	"definitions" : 
 	{
 		"guid_info" : 
