@@ -15,7 +15,7 @@ ChatServer::OptionCommand JsonParser::Parser::ParseMessage(const std::string &gu
 		return ChatServer::OptionCommand();
 	}
 
-	for (const auto &iter : sections)
+	for (const auto &iter : sectionList)
 	{
 		//парсим, пока не получим инициализированный объект-команду
 		auto commandObject = iter->Parse(message, guid);

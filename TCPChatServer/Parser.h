@@ -2,6 +2,8 @@
 
 #include "IMsgFabric.h"
 #include "ShortEnums.h"
+#include "AuthorizingParseSection.h"
+#include "MessageParseSection.h"
 
 namespace JsonParser
 {
@@ -10,10 +12,10 @@ namespace JsonParser
 	class Parser
 	{
 	public:
-		Parser()
+		Parser() :
 		{
 			//код для инициализации секций
-
+			
 			//-----------------------------
 		}
 
@@ -30,6 +32,6 @@ namespace JsonParser
 		Json::Reader jsReader;//для чтения из string
 		Json::FastWriter jsWriter;//для записи из jsValue в string
 
-		std::vector<std::unique_ptr<BaseParserSection>> sections;//список секций для парсинга
+		std::vector<std::unique_ptr<BaseParserSection>> sectionList;//список секций для парсинга
 	};
 }
