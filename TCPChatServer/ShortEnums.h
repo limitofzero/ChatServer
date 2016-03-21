@@ -10,5 +10,5 @@ namespace ChatServer
 
 	using Socket = boost::asio::ip::tcp::socket;
 	using SocketPtr = std::shared_ptr<Socket>;
-	using OptionCommand = boost::optional<Command::ICommand>;
+	using OptionCommand = boost::optional<std::unique_ptr<Command::ICommand>>;
 }

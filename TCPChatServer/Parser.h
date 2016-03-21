@@ -5,11 +5,16 @@
 
 namespace JsonParser
 {
+	class BaseParserSection;
+
 	class Parser
 	{
 	public:
 		Parser()
 		{
+			//код для инициализации секций
+
+			//-----------------------------
 		}
 
 		//создает сообщение из jsValue полученного из fabricObject
@@ -24,5 +29,7 @@ namespace JsonParser
 		Json::Value jsValue;
 		Json::Reader jsReader;//для чтения из string
 		Json::FastWriter jsWriter;//для записи из jsValue в string
+
+		std::vector<std::unique_ptr<BaseParserSection>> sections;//список секций для парсинга
 	};
 }

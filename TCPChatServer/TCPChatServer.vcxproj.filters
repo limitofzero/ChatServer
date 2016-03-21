@@ -40,6 +40,12 @@
     <Filter Include="Файлы исходного кода\JsonParser\MsgFabric">
       <UniqueIdentifier>{0e605465-4c24-4868-a6f1-0295df83dd96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Заголовочные файлы\JsonParser\ParseSections">
+      <UniqueIdentifier>{0a540537-60e3-4e44-8dff-4b8c92602a7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы исходного кода\JsonParser\ParseSections">
+      <UniqueIdentifier>{f84a3189-ccb9-4d55-a643-0a5cf45d2f98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Acceptor.h">
@@ -87,6 +93,15 @@
     <ClInclude Include="JsSchemes.h">
       <Filter>Заголовочные файлы\JsonParser</Filter>
     </ClInclude>
+    <ClInclude Include="BaseParseSection.h">
+      <Filter>Заголовочные файлы\JsonParser\ParseSections</Filter>
+    </ClInclude>
+    <ClInclude Include="AuthorizingParseSection.h">
+      <Filter>Заголовочные файлы\JsonParser\ParseSections</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageParseSection.h">
+      <Filter>Заголовочные файлы\JsonParser\ParseSections</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp">
@@ -111,7 +126,16 @@
       <Filter>Файлы исходного кода\JsonParser\MsgFabric</Filter>
     </ClCompile>
     <ClCompile Include="Parser.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>Файлы исходного кода\JsonParser</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseParseSection.cpp">
+      <Filter>Файлы исходного кода\JsonParser\ParseSections</Filter>
+    </ClCompile>
+    <ClCompile Include="AuthorizingParseSection.cpp">
+      <Filter>Файлы исходного кода\JsonParser\ParseSections</Filter>
+    </ClCompile>
+    <ClCompile Include="MessageParseSection.cpp">
+      <Filter>Файлы исходного кода\JsonParser\ParseSections</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

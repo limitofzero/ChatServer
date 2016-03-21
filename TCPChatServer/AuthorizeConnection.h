@@ -5,7 +5,7 @@
 namespace Command
 {
 	//комманда создания нового соединения
-	class AuthorizeConnection : ICommand
+	class AuthorizeConnection : public ICommand
 	{
 	public:
 		AuthorizeConnection(const std::string &_temp_guid, const std::string &_new_guid,

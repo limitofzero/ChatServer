@@ -11,6 +11,7 @@ namespace Command
 	//интерфейс для класса - комманда
 	class ICommand
 	{
+	public:
 		//выполнить комманду
 		virtual void Execute(ChatServer::ICommand &_server) = 0;
 	};
