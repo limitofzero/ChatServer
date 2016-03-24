@@ -8,6 +8,7 @@
 #include <fstream>
 #include "../TCPChatServer/JsSchemes.h"
 #include <iostream>
+#include <assert.h>
 
 Json::Value loadDocument(const std::string &fileName)
 {
@@ -28,7 +29,7 @@ Json::Value loadDocument(const std::string &fileName)
 	return jsValue;
 }
 
-void ReadAndValidateNode(const std::string &fileName, const std::string &schemeFileName)
+bool ReadAndValidateNode(const std::string &fileName, const std::string &schemeFileName)
 {
 	using valijson::Schema;
 	using valijson::SchemaParser;
@@ -46,7 +47,7 @@ void ReadAndValidateNode(const std::string &fileName, const std::string &schemeF
 	catch (std::exception e)
 	{
 		std::cout << e.what() << "\n";
-		return;
+		return false;
 	}
 	
 	JsonCppAdapter docAdapter(root);
@@ -62,7 +63,7 @@ void ReadAndValidateNode(const std::string &fileName, const std::string &schemeF
 	catch (std::exception e)
 	{
 		std::cout << e.what() << "\n";
-		return;
+		return false;
 	}
 
 	Validator validator;
@@ -70,7 +71,7 @@ void ReadAndValidateNode(const std::string &fileName, const std::string &schemeF
 	
 	if (validator.validate(schema, docAdapter, &results))
 	{
-		std::cout << fileName + " is valid(" << schemeFileName << ")\n";
+		return true;
 	}
 	else
 	{
@@ -91,6 +92,8 @@ void ReadAndValidateNode(const std::string &fileName, const std::string &schemeF
 				<< "  desc:    " << error.description << "\n";
 			++errorNum;
 		}
+
+		return false;
 	}
 }
 
@@ -98,9 +101,11 @@ void ReadAndValidateNode(const std::string &fileName, const std::string &schemeF
 
 int main()
 {
+	assert(ReadAndValidateNode("Authorizing.txt", "../schema/authorizing.json") == true);
+	std::cout <<  + "Authorizing.txt is valid\n";
 
-	ReadAndValidateNode("Authorizing.txt", "../schema/authorizing.json");
-	ReadAndValidateNode("Message.txt", "../schema/message.json");
+	assert(ReadAndValidateNode("Message.txt", "../schema/message.json") == true);
+	std::cout << +"Message.txt is valid\n";
 	
 	system("pause");
 	return 0;
