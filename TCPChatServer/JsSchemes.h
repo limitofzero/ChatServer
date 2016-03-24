@@ -1,12 +1,13 @@
 #pragma once
 #include <string>
+#include <vector>
 
 //содержит схемы для валидации json документа(возможно будет заменен на загрузку из текстовых документов)
 namespace JsonParser
 {
 
 	//схема для авторизации пользователя
-	const std::string authorizedScheme = R"(
+const std::string authorizedScheme = R"(
 	{
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"title" : "Authorizing schem",
@@ -37,7 +38,7 @@ namespace JsonParser
 })";
 
 	//схема для валидации текстовых сообщений от пользователя
-	const std::string messageScheme = R"(
+const std::string messageScheme = R"(
 {
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"title" : "Authorized schem",
@@ -71,4 +72,11 @@ namespace JsonParser
 		}
 	}
 })";
+
+	//определяем вектор, содержащий схемы
+	const std::vector<std::string> schemes =
+	{
+		authorizedScheme,
+		messageScheme
+	};
 }

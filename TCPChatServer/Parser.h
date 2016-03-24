@@ -12,12 +12,7 @@ namespace JsonParser
 	class Parser
 	{
 	public:
-		Parser() :
-		{
-			//код для инициализации секций
-			
-			//-----------------------------
-		}
+		Parser();
 
 		//создает сообщение из jsValue полученного из fabricObject
 		std::string CreateMessage(const IMsgFabric &fabricObjec);
@@ -26,7 +21,9 @@ namespace JsonParser
 		ChatServer::OptionCommand ParseMessage(const std::string &guid, const std::string &message);
 
 	private:
-		bool IsLoad(const std::string &string);//загружает данные в jsValue(возвраящает true при удачной загрузке, иначе false)
+
+		//загружает данные в jsValue(возвраящает true при удачной загрузке, иначе false)
+		bool IsLoad(const std::string &string);
 
 		Json::Value jsValue;
 		Json::Reader jsReader;//для чтения из string

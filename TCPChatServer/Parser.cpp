@@ -1,5 +1,24 @@
 #include "Parser.h"
 #include <boost/log/trivial.hpp>
+#include "JsSchemes.h"
+
+JsonParser::Parser::Parser()
+{
+	Json::Value msgSchemeValue, authorizedSchemeValue;
+	auto checkFirst = jsReader.parse(messageScheme, msgSchemeValue, false);
+	auto checkSecond = jsReader.parse(authorizedScheme, authorizedSchemeValue, false);
+	if (!(checkFirst && checkSecond))//если не удалось правильно распарсить схемы
+	{
+		throw std::runtime_error("Uncorrect scheme");//генерируем исключение
+	}
+
+	//инициализируем секции
+	auto section = std::make_unique<BaseParserSection>(new AuthorizingParseSection(jsValue, authorizedSchemeValue, ""));
+	sectionList.push_back(std::move(section));
+
+	section = std::make_unique<BaseParserSection>(new MessageParseSection(jsValue, messageScheme, ""));
+	sectionList.push_back(std::move(section));
+}
 
 std::string JsonParser::Parser::CreateMessage(const IMsgFabric &fabricObjec)
 {
