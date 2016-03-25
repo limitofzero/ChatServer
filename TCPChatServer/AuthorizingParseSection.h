@@ -8,8 +8,8 @@ namespace JsonParser
 		public BaseParseSection
 	{
 	public:
-		AuthorizingParseSection(const Json::Value &root, const Json::Value &schemaDoc, const std::string &clientGuid) :
-			BaseParseSection(root, schemaDoc, clientGuid)
+		AuthorizingParseSection(const Json::Value &root, const Json::Value &schemaDoc) :
+			BaseParseSection(root, schemaDoc)
 		{}
 
 		ChatServer::OptionCommand Parse() override;

@@ -13,7 +13,9 @@ namespace Command
 		// ”наследовано через ICommand
 		virtual void Execute(ChatServer::ICommand & _server) override
 		{
+#if 0
 			_server.WriteMessage(guidClient, msgFromClient);//код дл€ написани€ сообщени€
+#endif
 		}
 
 

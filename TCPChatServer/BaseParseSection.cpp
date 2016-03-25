@@ -2,9 +2,8 @@
 #include <boost/log/trivial.hpp>
 
 JsonParser::BaseParseSection::BaseParseSection(
-	const Json::Value & root, const Json::Value & schemaDoc, const std::string & clientGuid) :
+	const Json::Value & root, const Json::Value & schemaDoc) :
 	jsValue(root),
-	guid(clientGuid),
 	valijsonParser(SchemaParser::kDraft4),
 	schemaAdapter(schemaDoc)
 {

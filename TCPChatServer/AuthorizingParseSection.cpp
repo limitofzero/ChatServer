@@ -5,7 +5,7 @@ ChatServer::OptionCommand JsonParser::AuthorizingParseSection::Parse()
 {
 	ChatServer::OptionCommand command;
 
-	if (IsValid)//если сообщение валидно
+	if (IsValid())//если сообщение валидно
 	{
 		//извлекаем данные
 		const auto &root = jsValue["Authorizing"];

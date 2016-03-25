@@ -19,7 +19,9 @@ namespace Command
 		//выполнить комманду
 		void Execute(ChatServer::ICommand &_server) override
 		{
+#if 0
 			_server.AddAuthorizedConnection(tempGuid, clientGuid);
+#endif
 		}
 
 	private:

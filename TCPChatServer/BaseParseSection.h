@@ -20,7 +20,8 @@ namespace JsonParser
 	//базовый класс для парсинга сообщений
 	class BaseParseSection
 	{
-		BaseParseSection(const Json::Value &root, const Json::Value &schemaDoc, const std::string &clientGuid);
+	public:
+		BaseParseSection(const Json::Value &root, const Json::Value &schemaDoc);
 
 		//возвращает объект-комманду, если удалось распарсить(в противном случае возвращает пустой объект)
 		virtual ChatServer::OptionCommand Parse();
@@ -31,7 +32,6 @@ namespace JsonParser
 		bool IsValid();
 
 		const Json::Value &jsValue;//ссылка на секцию для парсинга
-		const std::string &guid;//ссылка на гуди пользователя, сообещние которого нужно парсить
 
 	private:
 		Schema schema;
