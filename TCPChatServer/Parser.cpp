@@ -13,11 +13,8 @@ JsonParser::Parser::Parser()
 	}
 
 	//инициализируем секции
-	auto section = std::make_unique<BaseParserSection>(new AuthorizingParseSection(jsValue, authorizedSchemeValue, ""));
-	sectionList.push_back(std::move(section));
-
-	section = std::make_unique<BaseParserSection>(new MessageParseSection(jsValue, messageScheme, ""));
-	sectionList.push_back(std::move(section));
+	sectionList.emplace_back(std::make_unique<AuthorizingParseSection>(jsValue, authorizedSchemeValue));
+	sectionList.emplace_back(std::make_unique<MessageParseSection>(jsValue, messageScheme));
 }
 
 std::string JsonParser::Parser::CreateMessage(const IMsgFabric &fabricObjec)
@@ -34,10 +31,10 @@ ChatServer::OptionCommand JsonParser::Parser::ParseMessage(const std::string &gu
 		return ChatServer::OptionCommand();
 	}
 
-	for (const auto &iter : sectionList)
+	for (auto &iter : sectionList)
 	{
 		//парсим, пока не получим инициализированный объект-команду
-		auto commandObject = iter->Parse(message, guid);
+		auto commandObject = iter
 		if (commandObject)
 			return commandObject;
 	}

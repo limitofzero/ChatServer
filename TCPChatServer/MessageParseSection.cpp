@@ -8,13 +8,14 @@ ChatServer::OptionCommand JsonParser::MessageParseSection::Parse()
 	if (IsValid())//если сообщение валидно
 	{
 		//извлекаем данные
+
 		const auto &root = jsValue["Message"];
 		auto msgGuid = root["guid"].asString();
 		auto content = root["content"].asString();
 
 		//создаем объект-комманду
 
-		std::unique_ptr<Command::ICommand> commandPtr(new Command::WriteMessage(msgGuid, content));
+		auto commandPtr = std::make_unique<Command::ICommand>(msgGuid, content);
 		return ChatServer::OptionCommand(std::move(commandPtr));//упаковываем в опшионал
 	}
 

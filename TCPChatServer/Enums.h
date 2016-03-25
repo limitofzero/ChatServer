@@ -28,7 +28,7 @@ namespace ChatServer
 	//ошибка и их описание
 	const std::unordered_map<SERVER_ERROR, std::string> errorsDescription
 	{
-		emplace(SERVER_ERROR::PARSING, "Ошибка парсинга"),
-		emplace(SERVER_ERROR::AUTHORIZE, "Ошибка авторизации")
+		std::pair<SERVER_ERROR, std::string>(SERVER_ERROR::PARSING, "Ошибка парсинга"),
+		std::pair<SERVER_ERROR, std::string>(SERVER_ERROR::AUTHORIZE, "Ошибка авторизации")
 	};
 }
