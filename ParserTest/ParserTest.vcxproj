@@ -159,6 +159,7 @@
     <ClCompile Include="..\TCPChatServer\GuidMsgFabric.cpp" />
     <ClCompile Include="..\TCPChatServer\MessageParseSection.cpp" />
     <ClCompile Include="..\TCPChatServer\Parser.cpp" />
+    <ClCompile Include="..\TCPChatServer\Settings.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -176,6 +177,7 @@
     <ClInclude Include="..\TCPChatServer\MessageParseSection.h" />
     <ClInclude Include="..\TCPChatServer\Parser.h" />
     <ClInclude Include="..\TCPChatServer\ServerInterface.h" />
+    <ClInclude Include="..\TCPChatServer\Settings.h" />
     <ClInclude Include="..\TCPChatServer\ShortEnums.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

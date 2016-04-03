@@ -8,8 +8,8 @@ JsonParser::Parser::Parser()
 	auto &configs = ChatServer::Settings::Instance();
 
 	Json::Value msgSchemeValue, authorizingSchemeValue;
-	msgSchemeValue = configs.shemes.at("Message");
-	authorizingSchemeValue = configs.shemes.at("Authorizing");
+	msgSchemeValue = configs.shemes.at("message");
+	authorizingSchemeValue = configs.shemes.at("authorizing");
 
 	//инициализируем секции
 	sectionList.emplace_back(std::make_unique<AuthorizingParseSection>(jsValue, authorizingSchemeValue));
