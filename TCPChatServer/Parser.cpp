@@ -4,19 +4,12 @@
 
 JsonParser::Parser::Parser()
 {
+	//получаем ссылку на конфиг
+	auto &configs = ChatServer::Settings::Instance();
+
 	Json::Value msgSchemeValue, authorizedSchemeValue;
-	auto checkFirst = jsReader.parse(messageScheme, msgSchemeValue, false);
-	auto checkSecond = jsReader.parse(authorizedScheme, authorizedSchemeValue, false);
-
-	if (!checkFirst)
-	{
-		throw std::runtime_error("Uncorrect scheme" + messageScheme);//генерируем исключение
-	}
-
-	if (!checkSecond)
-	{
-		throw std::runtime_error("Uncorrect scheme" + authorizedScheme);//генерируем исключение
-	}
+	msgSchemeValue = configs.shemes.at("Message");
+	authorizedSchemeValue = configs.shemes.at("Authorizing");
 
 	//инициализируем секции
 	sectionList.emplace_back(std::make_unique<AuthorizingParseSection>(jsValue, authorizedSchemeValue));
