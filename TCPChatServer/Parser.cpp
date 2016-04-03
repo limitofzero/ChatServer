@@ -7,13 +7,13 @@ JsonParser::Parser::Parser()
 	//получаем ссылку на конфиг
 	auto &configs = ChatServer::Settings::Instance();
 
-	Json::Value msgSchemeValue, authorizedSchemeValue;
+	Json::Value msgSchemeValue, authorizingSchemeValue;
 	msgSchemeValue = configs.shemes.at("Message");
-	authorizedSchemeValue = configs.shemes.at("Authorizing");
+	authorizingSchemeValue = configs.shemes.at("Authorizing");
 
 	//инициализируем секции
-	sectionList.emplace_back(std::make_unique<AuthorizingParseSection>(jsValue, authorizedSchemeValue));
-	sectionList.emplace_back(std::make_unique<MessageParseSection>(jsValue, messageScheme));
+	sectionList.emplace_back(std::make_unique<AuthorizingParseSection>(jsValue, authorizingSchemeValue));
+	sectionList.emplace_back(std::make_unique<MessageParseSection>(jsValue, msgSchemeValue));
 }
 
 std::string JsonParser::Parser::CreateMessage(const IMsgFabric &fabricObjec)

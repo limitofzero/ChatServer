@@ -9,8 +9,8 @@ namespace ChatServer
 	Settings::Settings()
 	{
 		//читаем схемы из файлов
-		ReadScheme("Authorizing", "/configs/shemes/Authorizing.json");
-		ReadScheme("Message", "/configs/shemes/Message.json");
+		ReadScheme("authorizing", "/configs/shemes/authorizing.json");
+		ReadScheme("message", "/configs/shemes/message.json");
 
 		ReadIniConfig("/configs/config.ini");
 	}

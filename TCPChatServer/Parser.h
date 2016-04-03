@@ -5,7 +5,7 @@
 #include "AuthorizingParseSection.h"
 #include "MessageParseSection.h"
 #include "BaseParseSection.h"
-
+#include "Settings.h"
 
 namespace JsonParser
 {
