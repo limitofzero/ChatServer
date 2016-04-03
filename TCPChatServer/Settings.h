@@ -6,20 +6,28 @@
 
 namespace ChatServer
 {
-	//задел на будущее(пока не трогать)
 	//класс для хранения настроек(паттерн singleton)
-	class Settings
+	struct Settings
 	{
 	public:
-		static Settings &Instance(const std::string &pathToConfig);
+		Settings(const Settings &refSettings) = delete;
+		Settings(Settings &&rrSettigs) = delete;
+		Settings &operator=(const Settings &refSettings) = delete;
+
+		//инстанцирует класс и возвращает ссылку на него(аргумент - путь к файлу конфига)
+		static Settings &Instance();
+
+		std::unordered_map<std::string, Json::Value> shemes;//схемы для валидации(ключ - наименование схемы)
+		uint16_t secondsToDisconnect;//время до отключения клиента от сервера
 
 	protected:
-
+		Settings();
 
 	private:
-		//схемы для валидации(ключ - наименование схемы)
-		std::unordered_map<std::string, std::string> shemes;
+		//читает схему из файла и добавляет ее в shemes
+		void ReadScheme(const std::string &nameOfSheme, const std::string &path);
 
-		uint16_t secondsToDisconnect;//время до отключения клиента от сервера
+		//читает ini файл настроек
+		void ReadIniConfig(const std::string &path);
 	};
 }

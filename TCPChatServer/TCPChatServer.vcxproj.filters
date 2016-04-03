@@ -140,5 +140,8 @@
     <ClCompile Include="MessageParseSection.cpp">
       <Filter>Файлы исходного кода\JsonParser\ParseSections</Filter>
     </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
