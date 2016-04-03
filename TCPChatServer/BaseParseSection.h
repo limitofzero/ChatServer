@@ -24,7 +24,7 @@ namespace JsonParser
 		BaseParseSection(const Json::Value &root, const Json::Value &schemaDoc);
 
 		//возвращает объект-комманду, если удалось распарсить(в противном случае возвращает пустой объект)
-		virtual ChatServer::OptionCommand Parse();
+		virtual ChatServer::OptionCommand Parse(const std::string &guid) = 0;
 
 
 	protected:

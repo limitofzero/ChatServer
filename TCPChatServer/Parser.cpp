@@ -1,15 +1,21 @@
 #include "Parser.h"
-#include <boost/log/trivial.hpp>
 #include "JsSchemes.h"
+#include <boost/log/trivial.hpp>
 
 JsonParser::Parser::Parser()
 {
 	Json::Value msgSchemeValue, authorizedSchemeValue;
 	auto checkFirst = jsReader.parse(messageScheme, msgSchemeValue, false);
 	auto checkSecond = jsReader.parse(authorizedScheme, authorizedSchemeValue, false);
-	if (!(checkFirst && checkSecond))//если не удалось правильно распарсить схемы
+
+	if (!checkFirst)
 	{
-		throw std::runtime_error("Uncorrect scheme");//генерируем исключение
+		throw std::runtime_error("Uncorrect scheme" + messageScheme);//генерируем исключение
+	}
+
+	if (!checkSecond)
+	{
+		throw std::runtime_error("Uncorrect scheme" + authorizedScheme);//генерируем исключение
 	}
 
 	//инициализируем секции
@@ -34,7 +40,7 @@ ChatServer::OptionCommand JsonParser::Parser::ParseMessage(const std::string &gu
 	for (auto &iter : sectionList)
 	{
 		//парсим, пока не получим инициализированный объект-команду
-		auto commandObject = iter
+		auto commandObject = iter->Parse(guid);
 		if (commandObject)
 			return commandObject;
 	}

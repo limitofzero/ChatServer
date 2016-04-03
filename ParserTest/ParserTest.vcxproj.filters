@@ -89,5 +89,8 @@
     <ClCompile Include="..\TCPChatServer\Parser.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="..\libs\jsoncpp.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -6,9 +6,9 @@
 #include "MessageParseSection.h"
 #include "BaseParseSection.h"
 
+
 namespace JsonParser
 {
-	class BaseParserSection;
 
 	class Parser
 	{
@@ -30,6 +30,6 @@ namespace JsonParser
 		Json::Reader jsReader;//для чтения из string
 		Json::FastWriter jsWriter;//для записи из jsValue в string
 
-		std::vector<std::unique_ptr<BaseParserSection>> sectionList;//список секций для парсинга
+		std::vector<std::unique_ptr<BaseParseSection>> sectionList;//список секций для парсинга
 	};
 }

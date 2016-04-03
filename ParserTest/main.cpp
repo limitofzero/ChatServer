@@ -25,14 +25,12 @@ int main()
 		"content" : "content"
 	})";
 
-
 	JsonParser::Parser parser;
 	auto obj = parser.ParseMessage("temp", firstMessage);
 	assert(obj);
 
 	auto obj2 = parser.ParseMessage("temp", secondMessage);
 	assert(obj2);
-
 
 
 	system("pause");

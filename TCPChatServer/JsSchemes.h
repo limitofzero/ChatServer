@@ -39,7 +39,7 @@ const std::string authorizedScheme = R"(
 
 	//схема для валидации текстовых сообщений от пользователя
 const std::string messageScheme = R"(
-{
+	{
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"title" : "Authorized schem",
 	"type" : "object",

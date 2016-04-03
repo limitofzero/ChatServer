@@ -1,6 +1,7 @@
 #pragma once
 
 #include "BaseParseSection.h"
+#include <boost\log\trivial.hpp>
 
 namespace JsonParser
 {
@@ -11,6 +12,6 @@ namespace JsonParser
 			BaseParseSection(root, schemaDoc)
 			{}
 
-		ChatServer::OptionCommand Parse() override;
+		ChatServer::OptionCommand Parse(const std::string &guid) override;
 	};
 }

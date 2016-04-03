@@ -10,26 +10,37 @@
 #include <iostream>
 #include <assert.h>
 
-Json::Value loadDocument(const std::string &fileName)
+Json::Value loadDocument(const std::string &fileName, bool isFile = true)
 {
 	Json::Value jsValue;
 	Json::Reader reader;
-	std::ifstream ifStream(fileName);
 
-	if (!ifStream.is_open())
+	if (isFile)
 	{
-		std::cout << "File didn't read!\n";
+		std::ifstream ifStream(fileName);
+
+		if (!ifStream.is_open())
+		{
+			std::cout << "File didn't read!\n";
+		}
+
+		if (!reader.parse(ifStream, jsValue, true))
+		{
+			throw std::runtime_error("Unable to parse " + fileName);
+		}
 	}
-
-	if (!reader.parse(ifStream, jsValue, true))
+	else
 	{
-		throw std::runtime_error("Unable to parse " + fileName);
+		if (!reader.parse(fileName, jsValue, true))
+		{
+			throw std::runtime_error("Unable to parse " + fileName);
+		}
 	}
 
 	return jsValue;
 }
 
-bool ReadAndValidateNode(const std::string &fileName, const std::string &schemeFileName)
+bool ReadAndValidateNode(const std::string &fileName, const std::string &schemeFileName, bool isFile = true)
 {
 	using valijson::Schema;
 	using valijson::SchemaParser;
@@ -41,8 +52,8 @@ bool ReadAndValidateNode(const std::string &fileName, const std::string &schemeF
 	Json::Value root, scheme;
 	try
 	{
-		root = loadDocument(fileName);
-		scheme = loadDocument(schemeFileName);
+		root = loadDocument(fileName, isFile);
+		scheme = loadDocument(schemeFileName, isFile);
 	}
 	catch (std::exception e)
 	{
@@ -101,10 +112,10 @@ bool ReadAndValidateNode(const std::string &fileName, const std::string &schemeF
 
 int main()
 {
-	assert(ReadAndValidateNode("Authorizing.txt", "../schema/authorizing.json") == true);
+	assert(ReadAndValidateNode("Authorizing.txt", JsonParser::authorizedScheme, false) == true);
 	std::cout <<  + "Authorizing.txt is valid\n";
 
-	assert(ReadAndValidateNode("Message.txt", "../schema/message.json") == true);
+	assert(ReadAndValidateNode("Message.txt", JsonParser::messageScheme, false) == true);
 	std::cout << +"Message.txt is valid\n";
 	
 	system("pause");

@@ -4,8 +4,12 @@
 #include "ShortEnums.h"
 #include <chrono>
 
+#define ParserTest 0
+
 namespace ChatServer
 {
+#if ParserTest
+
 	class ParametrizedMessage;
 
 	class IConnection
@@ -40,6 +44,8 @@ namespace ChatServer
 
 		virtual ~IAcceptor() = default;
 	};
+
+#endif
 
 	//интерфейс для выполнения команд сервера
 	class ICommand
