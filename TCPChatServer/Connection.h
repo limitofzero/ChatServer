@@ -42,16 +42,23 @@ namespace ChatServer
 		//записать сообщение в сокет
 		void WriteMessage(const std::string &message);
 
-		//отменить все операции и перестать прослушивать сокет
-		void Disconnect();
-
 		//запуск таймера отключения
 		void StartDisconnectTimer();
 
 		//сброс таймера отключения
 		void ResetDisconnectTimer();
 
+		//изменяет гуид пользователя
+		void SetGuid(const std::string &newGuid)
+		{
+			clientGuid = newGuid;
+			ResetDisconnectTimer();
+		}
+
 	private:
+		//отменить все операции и перестать прослушивать сокет
+		void Disconnect();
+
 		//обработчик чтения
 		void OnRead(const system::error_code &_error, const std::size_t _bytes, const bool _first);
 
@@ -67,7 +74,7 @@ namespace ChatServer
 		asio::system_timer disconnectTimer;//таймер отключения
 		const std::chrono::seconds disconnectTime;//время, спустя которе должен срабатывать таймер
 
-		const std::string clientGuid;//гуид пользователя(ник)
+		std::string clientGuid;//гуид пользователя(ник)
 		const char delimiter{ '\0' };//символ до которого идет чтение данных в сокете
 	};
 }

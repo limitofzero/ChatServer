@@ -23,9 +23,11 @@ namespace ChatServer
 	{
 		if (list.find(guid) != list.end())
 		{
-			list.at(guid)->Disconnect();
 			list.erase(guid);
+			BOOST_LOG_TRIVIAL(info) << "Disconnect " << guid;
 		}
+
+		BOOST_LOG_TRIVIAL(error) << "Connection don't exist";
 	}
 
 	void Server::HandleMessage(const std::string &guid, const std::string &message)
@@ -86,6 +88,6 @@ namespace ChatServer
 			newConnections.erase(tempGuid);
 		}
 
-		BOOST_LOG_TRIVIAL(error) << "Connection isn't exist";
+		BOOST_LOG_TRIVIAL(error) << "Connection don't exist";
 	}
 }
