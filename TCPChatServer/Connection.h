@@ -31,6 +31,10 @@ namespace ChatServer
 		Connection &operator=(const IConnection &_connection) = delete;
 		Connection &operator=(IConnection &&_connection) = delete;
 
+		~Connection()
+		{
+			Disconnect();
+		}
 
 		//начать прослушивание сокета
 		void ReadMessage(const bool _first = false);

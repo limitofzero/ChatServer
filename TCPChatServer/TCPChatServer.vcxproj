@@ -183,6 +183,7 @@
     <ClCompile Include="GuidMsgFabric.cpp" />
     <ClCompile Include="MessageParseSection.cpp" />
     <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="Server.cpp" />
     <ClCompile Include="Settings.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

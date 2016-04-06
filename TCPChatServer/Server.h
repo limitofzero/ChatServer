@@ -31,25 +31,44 @@ namespace ChatServer
 		//интерфейс IConnection
 
 		//отключить клиента и удалить его из списка подключений
-		void DeleteConnection(const std::string &_guid) override;
+		void DeleteConnection(const std::string &guid, const bool authorized = false) override;
 
 		//обработка сообщения
-		void HandleMessage(const std::string &_guid, const std::string &_message) override;
+		void HandleMessage(const std::string &guid, const std::string &message) override;
 
 		//авторизация
-		void AuthorizeConnection(const std::string &_temp_guid, const std::string &_message) override;
+		void AuthorizeConnection(const std::string &tempGuid, const std::string &message) override;
 
 		//возвращаем время отключения
-		std::chrono::seconds GetDisconnectTime() override;
+		std::chrono::seconds GetDisconnectTime() const override
+		{
+			return disconnectTime;
+		}
 
+		//интерфейс IAcceptor
 
+		//передает серверу смарт-поинтер на сокет для создания подключения
+		void CreateConnection(SocketPtr &socket) override;
+
+		//интерфейс для выполнения команд сервера
+
+		//отправить сообщение пользователям
+		virtual void WriteMessage(const std::string &guid, const std::string &message) override;
+
+		//добавить соединение в список проверенных
+		virtual void AddAuthorizedConnection(const std::string &tempGuid, const std::string &newGuid) override;
 
 	private:
+		
+		//унифицированный интерфейс удаления подключения
+		void DisconnectFromList(ConnectionList &list, const std::string &guid);
+
 		asio::io_service io_service;//для вызова ассинхронных ф-ий
 		Acceptor acceptor;//слушает сокет на предмет подключений
 		JsonParser::Parser jsParser;//служит для парсинг сообщений(в/из json формат)
 
 		const std::chrono::seconds disconnectTime;//время отключения соединения от сервера(в секундах)
+		uint32_t connectionsCounter;//счетчик подключений
 		
 		ConnectionList newConnections;//список неавторизированных подключений(ключ - временный гуид)
 		ConnectionList authorizedConnections;//список авторизированных подключений(ключ - гуид(логин))

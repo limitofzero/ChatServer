@@ -146,5 +146,8 @@
     <ClCompile Include="Settings.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>Файлы исходного кода\TCPServer</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
