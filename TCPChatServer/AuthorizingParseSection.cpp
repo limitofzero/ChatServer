@@ -9,6 +9,7 @@ ChatServer::OptionCommand JsonParser::AuthorizingParseSection::Parse(const std::
 	{
 		//извлекаем данные
 		const auto &root = jsValue["Authorizing"];
+
 		auto msgGuid = root["guid"].asString();
 		if (guid != msgGuid)//если гуиды не совпадают
 		{

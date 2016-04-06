@@ -165,6 +165,7 @@
     <ClInclude Include="JsSchemes.h" />
     <ClInclude Include="MessageParseSection.h" />
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="Server.h" />
     <ClInclude Include="ServerInterface.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="ShortEnums.h" />

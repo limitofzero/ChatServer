@@ -7,5 +7,5 @@ Json::Value JsonParser::GuidMsgFabric::CreateJsValue() const
 	jsValue["Message"]["Content"] = msgClient;
 	jsValue["Message"]["Time"] = timeReceive;
 
-	return Json::Value();
+	return jsValue;
 }

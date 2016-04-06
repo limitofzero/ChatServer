@@ -10,6 +10,7 @@ ChatServer::OptionCommand JsonParser::MessageParseSection::Parse(const std::stri
 		//извлекаем данные
 
 		const auto &root = jsValue["Message"];
+
 		auto msgGuid = root["guid"].asString();
 		if (guid != msgGuid)//если пользовательский гуиды не совпадают
 		{

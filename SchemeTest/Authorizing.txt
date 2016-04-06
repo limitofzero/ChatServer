@@ -1,0 +1,7 @@
+{
+	"Authorizing":
+	{
+		"guid" : "Guid13",
+		"password" : "password"
+	}
+}
