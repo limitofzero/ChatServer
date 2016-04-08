@@ -25,6 +25,11 @@ namespace ChatServer
 			acceptor(*this, Settings::Instance().port),
 			disconnectTime(Settings::Instance().secondsToDisconnect)
 		{}
+
+		void Start()
+		{
+			acceptor.Start();
+		}
 		
 		//возвращает ссылку на io_service
 		asio::io_service &GetIOService() override

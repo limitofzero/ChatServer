@@ -28,9 +28,6 @@
     <Filter Include="Заголовочные файлы\Command">
       <UniqueIdentifier>{f52f0842-18bd-4cd3-a0e8-6d0a2a9c07a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы исходного кода\Command">
-      <UniqueIdentifier>{d04cdc17-1723-4d4c-b409-af831bad1abd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Заголовочные файлы\Enums">
       <UniqueIdentifier>{6725893b-ea8e-4283-9f45-8e923b6cc758}</UniqueIdentifier>
     </Filter>
@@ -56,9 +53,6 @@
     </ClInclude>
     <ClInclude Include="ServerInterface.h">
       <Filter>Заголовочные файлы\TCPServer</Filter>
-    </ClInclude>
-    <ClInclude Include="ShortEnums.h">
-      <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="ICommand.h">
       <Filter>Заголовочные файлы\Command</Filter>
@@ -109,7 +103,10 @@
       <Filter>Заголовочные файлы\TCPServer</Filter>
     </ClInclude>
     <ClInclude Include="OptionCommand.h">
-      <Filter>Заголовочные файлы</Filter>
+      <Filter>Заголовочные файлы\TCPServer</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortEnums.h">
+      <Filter>Заголовочные файлы\TCPServer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
