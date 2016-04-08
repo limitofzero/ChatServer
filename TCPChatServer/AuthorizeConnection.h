@@ -13,15 +13,13 @@ namespace Command
 			tempGuid(_temp_guid),
 			clientGuid(_new_guid),
 			clientPassword(_client_password)
-		{};
+		{}
 
 
 		//выполнить комманду
-		void Execute(ChatServer::ICommand &_server) override
+		void Execute(ChatServer::ICommandInterface &server) override
 		{
-#if 0
-			_server.AddAuthorizedConnection(tempGuid, clientGuid);
-#endif
+			server.AddAuthorizedConnection(tempGuid, clientGuid);
 		}
 
 	private:

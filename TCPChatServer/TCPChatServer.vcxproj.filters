@@ -108,6 +108,9 @@
     <ClInclude Include="Server.h">
       <Filter>Заголовочные файлы\TCPServer</Filter>
     </ClInclude>
+    <ClInclude Include="OptionCommand.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Acceptor.cpp">

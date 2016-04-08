@@ -15,11 +15,12 @@ namespace ChatServer
 	class Server : 
 		public IConnection, 
 		public IAcceptor, 
-		public ICommand
+		public ICommandInterface
 	{
 		using ConnectionList = std::unordered_map<std::string, std::shared_ptr<Connection>>;
 
 	public:
+
 		Server();
 		
 		//возвращает ссылку на io_service
@@ -27,6 +28,9 @@ namespace ChatServer
 		{
 			return io_service;
 		}
+
+		//отправляет сообщение контректному пользователю
+		void WriteMessage(const std::string &guid, const std::string &message);
 
 		//интерфейс IConnection
 
@@ -52,8 +56,8 @@ namespace ChatServer
 
 		//интерфейс для выполнения команд сервера
 
-		//отправить сообщение пользователям
-		virtual void WriteMessage(const std::string &guid, const std::string &message) override;
+		//разослать сообщение пользователям
+		virtual void WriteClientMessage(const std::string &message) override;
 
 		//добавить соединение в список проверенных
 		virtual void AddAuthorizedConnection(const std::string &tempGuid, const std::string &newGuid) override;

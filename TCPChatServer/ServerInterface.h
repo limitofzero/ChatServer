@@ -4,13 +4,8 @@
 #include "ShortEnums.h"
 #include <chrono>
 
-
-
 namespace ChatServer
 {
-
-	class ParametrizedMessage;
-
 	class IConnection
 	{
 	public:
@@ -45,15 +40,15 @@ namespace ChatServer
 	};
 
 	//интерфейс для выполнения команд сервера
-	class ICommand
+	class ICommandInterface
 	{
 	public:
 		//отправить сообщение пользователям
-		virtual void WriteMessage(const std::string &guid, const std::string &message) = 0;
+		virtual void WriteClientMessage(const std::string &message) = 0;
 
 		//добавить соединение в список проверенных
 		virtual void AddAuthorizedConnection(const std::string &tempGuid, const std::string &newGuid) = 0;
 
-		virtual ~ICommand() = default;
+		virtual ~ICommandInterface() = default;
 	};
 }

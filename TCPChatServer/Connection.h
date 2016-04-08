@@ -3,12 +3,12 @@
 #include "ServerInterface.h"
 #include <boost/asio/system_timer.hpp>
 
+using namespace boost;
+
 namespace ChatServer
 {
-
-	using namespace boost;
 	//класс, обеспечивающий работу с подключением(отпарвка/прием сообщений/отключение)
-	class Connection : std::enable_shared_from_this<Connection>
+	class Connection : public std::enable_shared_from_this<Connection>
 	{
 	public:
 		Connection(IConnection &_server, SocketPtr &_socket, const std::string _guid) :
@@ -52,7 +52,10 @@ namespace ChatServer
 		void SetGuid(const std::string &newGuid)
 		{
 			clientGuid = newGuid;
+#if 0
 			ResetDisconnectTimer();
+#endif
+			disconnectTimer.cancel();//отключаем таймер
 		}
 
 	private:

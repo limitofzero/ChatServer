@@ -76,7 +76,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>..\libs;Z:\Downloads\boost_1_60_0\boost_1_60_0;$(IncludePath)</IncludePath>
-    <LibraryPath>..\libs;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\libs;Z:\Downloads\boost_1_60_0\boost_1_60_0\stage\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -164,6 +164,7 @@
     <ClInclude Include="IMsgFabric.h" />
     <ClInclude Include="JsSchemes.h" />
     <ClInclude Include="MessageParseSection.h" />
+    <ClInclude Include="OptionCommand.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="ServerInterface.h" />

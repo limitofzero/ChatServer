@@ -29,6 +29,6 @@ namespace ChatServer
 		asio::io_service &rService;//ссылка на io_service
 		asio::ip::tcp::acceptor asioAcceptor;
 		const uint16_t tcpPort;//порт, который слушает данный сервер
-		const asio::ip::tcp::endpoint endPoint;//точка подключения
+		asio::ip::tcp::endpoint endPoint;//точка подключения
 	};
 }

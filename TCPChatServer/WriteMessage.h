@@ -3,6 +3,7 @@
 
 namespace Command
 {
+	//----------------переписать
 	class WriteMessage : public ICommand
 	{
 	public:
@@ -12,11 +13,9 @@ namespace Command
 		{}
 
 		// Унаследовано через ICommand
-		virtual void Execute(ChatServer::ICommand & _server) override
+		virtual void Execute(ChatServer::ICommandInterface & _server) override
 		{
-#if 0
-			_server.WriteMessage(guidClient, msgFromClient);//код для написания сообщения
-#endif
+			_server.WriteClientMessage(msgFromClient);
 		}
 
 

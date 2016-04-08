@@ -2,10 +2,12 @@
 #include "ICommand.h"
 #include "Enums.h"
 #include "ErrorMsgFabric.h"
+#include "AcceptMsgFabric.h"
+#include "AuthorizeMsgFabric.h"
 
 namespace ChatServer
 {
-	void Server::DeleteConnection(const std::string &guid, const bool authorized = false)
+	void Server::DeleteConnection(const std::string &guid, const bool authorized)
 	{
 		if (authorized)//если клиент был авторизирован
 		{
@@ -68,10 +70,10 @@ namespace ChatServer
 
 	void Server::WriteMessage(const std::string &guid, const std::string &message)
 	{
-		//отправляет сообщение всем пользователям
-		for (auto &i : authorizedConnections)
+		//отправляет сообщение пользователю guid
+		if (authorizedConnections.find(guid) != authorizedConnections.end())
 		{
-			i.second->WriteMessage(message);
+			authorizedConnections.at(guid)->WriteMessage(message);
 		}
 	}
 
@@ -84,10 +86,23 @@ namespace ChatServer
 			authorizedConnections.emplace(std::move(connection));//переносим подлкючение в список проверенных
 			authorizedConnections.at(tempGuid)->SetGuid(newGuid);//дописать
 			
+			BOOST_LOG_TRIVIAL(info) << "Add authorized connection " << newGuid;
+			JsonParser::AuthorizeMsgFabric msg(true);
+			auto strMessage = jsParser.CreateMessage(msg);
+			WriteMessage(newGuid ,strMessage);
+			
 			//удаляем пустое соединеие
 			newConnections.erase(tempGuid);
 		}
 
 		BOOST_LOG_TRIVIAL(error) << "Connection don't exist";
+	}
+
+	void Server::WriteClientMessage(const std::string &message)
+	{
+		for (auto &i : authorizedConnections)
+		{
+			i.second->WriteMessage(message);
+		}
 	}
 }

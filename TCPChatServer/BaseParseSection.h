@@ -7,6 +7,7 @@
 #include <valijson\schema_parser.hpp>
 #include <valijson\validation_results.hpp>
 #include "ShortEnums.h"
+#include "OptionCommand.h"
 
 
 namespace JsonParser
