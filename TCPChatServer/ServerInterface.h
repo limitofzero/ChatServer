@@ -34,7 +34,7 @@ namespace ChatServer
 		virtual boost::asio::io_service &GetIOService() = 0;
 
 		//передает серверу смарт-поинтер на сокет для создания подключения
-		virtual void CreateConnection(SocketPtr &socket) = 0;
+		virtual void CreateConnection(boost::asio::ip::tcp::socket socket) = 0;
 
 		virtual ~IAcceptor() = default;
 	};

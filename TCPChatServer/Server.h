@@ -66,7 +66,7 @@ namespace ChatServer
 		//интерфейс IAcceptor
 
 		//передает серверу смарт-поинтер на сокет для создания подключения
-		void CreateConnection(SocketPtr &socket) override;
+		void CreateConnection(asio::ip::tcp::socket socket) override;
 
 		//интерфейс для выполнения команд сервера
 

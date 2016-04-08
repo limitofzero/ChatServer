@@ -11,20 +11,12 @@ namespace ChatServer
 	class Connection : public std::enable_shared_from_this<Connection>
 	{
 	public:
-		Connection(IConnection &_server, SocketPtr &_socket, const std::string _guid) :
+		Connection(IConnection &_server, asio::ip::tcp::socket socket, const std::string _guid) :
 			rServer(_server),
-			pSocket(std::move(_socket)),
+			socket(std::move(socket)),
 			disconnectTime(_server.GetDisconnectTime()),
 			disconnectTimer(_server.GetIOService()),
 			clientGuid(_guid)
-		{}
-
-		Connection(Connection &&_connection) :
-			rServer(_connection.rServer),
-			pSocket(std::move(_connection.pSocket)),
-			disconnectTime(_connection.disconnectTime),
-			disconnectTimer(rServer.GetIOService()),
-			clientGuid(std::move(_connection.clientGuid))
 		{}
 		
 		Connection(const IConnection &_connection) = delete;
@@ -69,7 +61,7 @@ namespace ChatServer
 		void TimerHandler(const system::error_code &_error);
 
 		IConnection &rServer;//ссылка на интерфейс сервера
-		SocketPtr pSocket;//указатель на сокет
+		asio::ip::tcp::socket socket;//указатель на сокет
 
 		asio::streambuf writeBuffer;
 		asio::streambuf readBuffer;

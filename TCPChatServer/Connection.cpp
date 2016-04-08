@@ -7,7 +7,7 @@ namespace ChatServer
 	void Connection::ReadMessage(const bool _first)
 	{
 		auto pSelf(shared_from_this());
-		asio::async_read_until(*pSocket, readBuffer, delimiter,
+		asio::async_read_until(socket, readBuffer, delimiter,
 			[this, pSelf, _first](const system::error_code & _error, const std::size_t _bytes)
 		{
 			if (_error)
@@ -30,7 +30,7 @@ namespace ChatServer
 		out << message;
 
 		//пишем в сокет
-		asio::async_write(*pSocket, writeBuffer,
+		asio::async_write(socket, writeBuffer,
 			[this, pSelf](const system::error_code & _error, const std::size_t _bytes)
 		{
 			if (_error)
@@ -43,8 +43,8 @@ namespace ChatServer
 
 	void Connection::Disconnect()
 	{
-		pSocket->shutdown(Socket::shutdown_both);
-		pSocket->close();
+		socket.shutdown(Socket::shutdown_both);
+		socket.close();
 	}
 
 	void Connection::StartDisconnectTimer()

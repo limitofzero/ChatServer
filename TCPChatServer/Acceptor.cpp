@@ -6,33 +6,31 @@ namespace ChatServer
 
 	void Acceptor::Start()
 	{
-		//инициализируем новый сокет
-		SocketPtr pSocket = std::make_shared<Socket>(rService);
-
 		//начинаем слушать сокет
-		asioAcceptor.async_accept(*pSocket,
-			[this, pSocket](const system::error_code &_errorCode)
+		asioAcceptor.async_accept(socket,
+			[this](const system::error_code &_errorCode)
 		{
-			OnAccept(_errorCode, pSocket);
+			OnAccept(_errorCode);
 		});
 	}
 
-	void Acceptor::OnAccept(const system::error_code & _errorCode, SocketPtr pSocket)
+	void Acceptor::OnAccept(const system::error_code & _errorCode)
 	{
 		if (_errorCode)
 		{
 			if (_errorCode != asio::error::operation_aborted)
 			{
 				BOOST_LOG_TRIVIAL(error) << _errorCode.message();
-				return;
 			}
+			return;
 		}
 		else
 		{
 			//если обработалось без ошибки
-			rServer.CreateConnection(pSocket);
+			rServer.CreateConnection(std::move(socket));
 		}
 
+		socket = asio::ip::tcp::socket(rService);
 		Start();//снова начинаем прослушку
 	}
 }

@@ -58,12 +58,13 @@ namespace ChatServer
 		DeleteConnection(tempGuid, false);//удаляем подключение из списка временных
 	}
 
-	void Server::CreateConnection(SocketPtr &socket)
+	void Server::CreateConnection(asio::ip::tcp::socket socket)
 	{
 		//генерируем временный guid
-		std::string tempGuid = "TMP_" + connectionsCounter;
+		++connectionsCounter;
+		std::string tempGuid = "TMP_" + std::to_string(connectionsCounter);
 		//создаем подключение и добавляем его в список неавторизированных
-		newConnections.emplace(tempGuid, std::make_shared<Connection>(*this, socket, tempGuid));
+		newConnections.emplace(tempGuid, std::make_shared<Connection>(*this, std::move(socket), tempGuid));
 
 		BOOST_LOG_TRIVIAL(info) << "Add new connection " << tempGuid;
 	}
