@@ -31,6 +31,11 @@ namespace ChatServer
 			acceptor.Start();
 			io_service.run();
 		}
+
+		~Server()
+		{
+			io_service.stop();
+		}
 		
 		//возвращает ссылку на io_service
 		asio::io_service &GetIOService() override
