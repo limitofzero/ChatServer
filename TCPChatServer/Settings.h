@@ -20,6 +20,7 @@ namespace ChatServer
 
 		std::unordered_map<std::string, Json::Value> shemes;//схемы для валидации(ключ - наименование схемы)
 		uint16_t secondsToDisconnect;//время до отключения клиента от сервера
+		uint16_t port;//порт, который нужно прослушивать на предмет подключений
 
 	protected:
 		Settings();

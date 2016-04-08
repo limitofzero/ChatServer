@@ -21,7 +21,10 @@ namespace ChatServer
 
 	public:
 
-		Server();
+		Server() :
+			acceptor(*this, Settings::Instance().port),
+			disconnectTime(Settings::Instance().secondsToDisconnect)
+		{}
 		
 		//возвращает ссылку на io_service
 		asio::io_service &GetIOService() override

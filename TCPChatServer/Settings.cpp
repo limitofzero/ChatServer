@@ -50,5 +50,6 @@ namespace ChatServer
 		boost::property_tree::ini_parser::read_ini(path, pt);
 
 		secondsToDisconnect = pt.get<uint16_t>("Timer.seconds", 20);
+		port = pt.get<uint16_t>("Ports.tcp", 20003);
 	}
 }

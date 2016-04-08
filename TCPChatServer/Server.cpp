@@ -63,7 +63,7 @@ namespace ChatServer
 		//генерируем временный guid
 		std::string tempGuid = "TMP_" + connectionsCounter;
 		//создаем подключение и добавляем его в список неавторизированных
-		newConnections.emplace(std::make_shared<Connection>(*this, socket, tempGuid));
+		newConnections.emplace(tempGuid, std::make_shared<Connection>(*this, socket, tempGuid));
 
 		BOOST_LOG_TRIVIAL(info) << "Add new connection " << tempGuid;
 	}
@@ -83,7 +83,7 @@ namespace ChatServer
 		if (newConnections.find(tempGuid) != newConnections.end())
 		{
 			auto &connection = newConnections.at(tempGuid);
-			authorizedConnections.emplace(std::move(connection));//переносим подлкючение в список проверенных
+			authorizedConnections.emplace(newGuid, std::move(connection));//переносим подлкючение в список проверенных
 			authorizedConnections.at(tempGuid)->SetGuid(newGuid);//дописать
 			
 			BOOST_LOG_TRIVIAL(info) << "Add authorized connection " << newGuid;
