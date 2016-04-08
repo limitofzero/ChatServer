@@ -12,7 +12,7 @@ namespace ChatServer
 		{
 			if (_error)
 			{
-				if (_error != system::errc::operation_canceled)
+				if (_error != asio::error::operation_aborted)
 					BOOST_LOG_TRIVIAL(error) << _error.message();
 				return;
 			}
@@ -21,7 +21,7 @@ namespace ChatServer
 		});
 	}
 
-	void Connection::WriteMessage(const std::string & message)
+	void Connection::WriteMessage(const std::string &message)
 	{
 		auto pSelf(shared_from_this());
 
@@ -35,7 +35,7 @@ namespace ChatServer
 		{
 			if (_error)
 			{
-				if (_error != system::errc::operation_canceled)
+				if (_error != asio::error::operation_aborted)
 					BOOST_LOG_TRIVIAL(error) << _error.message();
 			}
 		});
@@ -91,7 +91,7 @@ namespace ChatServer
 	{
 		if (_error)
 		{
-			if (_error != system::errc::operation_canceled)
+			if (_error != asio::error::operation_aborted)
 			{
 				BOOST_LOG_TRIVIAL(error) << _error.message();
 			}

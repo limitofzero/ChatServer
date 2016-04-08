@@ -14,8 +14,7 @@ namespace ChatServer
 			rServer(_server),
 			rService(_server.GetIOService()),
 			tcpPort(_port),
-			endPoint(asio::ip::tcp::v4(), tcpPort),
-			asioAcceptor(rService, asio::ip::tcp::v4())
+			asioAcceptor(rService, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), tcpPort))
 		{}
 
 		//начать ожидание подключения
@@ -29,6 +28,5 @@ namespace ChatServer
 		asio::io_service &rService;//ссылка на io_service
 		asio::ip::tcp::acceptor asioAcceptor;
 		const uint16_t tcpPort;//порт, который слушает данный сервер
-		asio::ip::tcp::endpoint endPoint;//точка подключения
 	};
 }

@@ -182,6 +182,7 @@
     <ClCompile Include="Connection.cpp" />
     <ClCompile Include="ErrorMsgFabric.cpp" />
     <ClCompile Include="GuidMsgFabric.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="MessageParseSection.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Server.cpp" />

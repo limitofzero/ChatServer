@@ -27,8 +27,9 @@ namespace ChatServer
 		{}
 
 		void Start()
-		{
+		{ 
 			acceptor.Start();
+			io_service.run();
 		}
 		
 		//возвращает ссылку на io_service

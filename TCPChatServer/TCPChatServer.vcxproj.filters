@@ -143,11 +143,14 @@
     <ClCompile Include="MessageParseSection.cpp">
       <Filter>Файлы исходного кода\JsonParser\ParseSections</Filter>
     </ClCompile>
-    <ClCompile Include="Settings.cpp">
-      <Filter>Файлы исходного кода</Filter>
-    </ClCompile>
     <ClCompile Include="Server.cpp">
       <Filter>Файлы исходного кода\TCPServer</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Файлы исходного кода\TCPServer</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Файлы исходного кода</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
