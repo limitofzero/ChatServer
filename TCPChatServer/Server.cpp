@@ -65,6 +65,11 @@ namespace ChatServer
 		std::string tempGuid = "TMP_" + std::to_string(connectionsCounter);
 		//создаем подключение и добавляем его в список неавторизированных
 		newConnections.emplace(tempGuid, std::make_shared<Connection>(*this, std::move(socket), tempGuid));
+		
+		//отправляем сообщение об ожидании авторизации
+		JsonParser::AcceptMsgFabric acceptMessage("1.2.3");//---------------------временно
+		auto strMessage = jsParser.CreateMessage(acceptMessage);
+		newConnections.at(tempGuid)->WriteMessage(strMessage);
 
 		BOOST_LOG_TRIVIAL(info) << "Add new connection " << tempGuid;
 	}
